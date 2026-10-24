@@ -1,5 +1,3 @@
-/* Placeholder Manager v0.1.2 */
-
 .placeholder-manager-token {
   --placeholder-manager-color: var(--interactive-accent);
   background: color-mix(in srgb, var(--placeholder-manager-color) 18%, transparent);
@@ -23,18 +21,14 @@
   border-style: dashed;
 }
 
-/*
- * Inactive placeholders are always split into source-syntax and semantic-text
- * spans by CodeMirror. Source Mode shows all three spans. Live Preview hides
- * only the syntax spans after Obsidian has mounted the editor.
- */
+
 .markdown-source-view.mod-cm6.is-live-preview .placeholder-manager-token-syntax,
 .markdown-source-view.is-live-preview .placeholder-manager-token-syntax,
 .is-live-preview .placeholder-manager-token-syntax {
   display: none !important;
 }
 
-/* Make the three visible Source Mode spans read as one continuous token. */
+
 .markdown-source-view:not(.is-live-preview) .placeholder-manager-token-syntax-prefix {
   border-right-width: 0;
   border-top-right-radius: 0;
@@ -225,7 +219,7 @@
   }
 }
 
-/* Phase 15: mobile ergonomics and bounded sidebar rendering. */
+
 .placeholder-manager-show-more {
   display: block;
   margin: 12px auto 4px;
@@ -307,4 +301,17 @@
   .placeholder-manager-show-more {
     width: 100%;
   }
+}
+
+
+.markdown-source-view.mod-cm6.is-live-preview
+.cm-line .placeholder-manager-token {
+  background-color: color-mix(
+    in srgb,
+    var(--placeholder-manager-color, #819c90) 25%,
+    transparent
+  ) !important;
+  border: 1px solid var(--placeholder-manager-color, #819c90) !important;
+  border-radius: 4px;
+  color: var(--text-normal) !important;
 }
